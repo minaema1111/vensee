@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @venders.each do |vender| %>
+    <div class="content_post" style="background-image: url(<%= vender.image %>);">
+      <p><%= vender.text %></p>
+      <span class="name">
+        <%= vender.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
