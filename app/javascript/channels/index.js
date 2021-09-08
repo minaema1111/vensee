@@ -1,5 +1,11 @@
-// Load all the channels within this directory and all subdirectories.
-// Channel files must be named *_channel.js.
+import Vue from "vue/dist/vue.esm";
+import axios from "axios";
+import VueAxiosPlugin from "./plugins/vue-axios";
+import App from "./components/App.vue";
 
-const channels = require.context('.', true, /_channel\.js$/)
-channels.keys().forEach(channels)
+Vue.use(VueAxiosPlugin, { axios: axios })
+
+new Vue({
+  el: "#app",
+  render: h => h(App),
+})
