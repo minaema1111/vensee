@@ -1,6 +1,4 @@
 class Prefecture < ApplicationRecord
-  has_many :cities
-  # belongs_to :vender, optional: true
-
+  belongs_to :vender
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 end

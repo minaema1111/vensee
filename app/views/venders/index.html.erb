@@ -1,10 +1,18 @@
-<div class="contents row">
-  <% @venders.each do |vender| %>
-    <div class="content_post" style="background-image: url(<%= vender.image %>);">
-      <p><%= vender.text %></p>
-      <span class="name">
-        <%= vender.name %>
-      </span>
-    </div>
-  <% end %>
+<div 
+class="bg-fixed w-screen h-screen"
+style="background-image: url('https://cdn.pixabay.com/photo/2015/12/15/19/34/break-room-1094823_1280.jpg') ">
+<div class="animate-pulse text-4xl text-right text-white">
+
+<% if user_signed_in? %>
+<%= "Hellow！#{current_user.nickname}さん"%><br>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
+<%= link_to "新規投稿", new_vender_path%>
+<% else%>
+<%= link_to "新規登録", new_user_registration_path%>
+<div class="animate-pulse text-4xl text-white">
+<%= link_to "ログイン", new_user_session_path%>
+<% end %>
+</div>
+</div>
+</div>
 </div>

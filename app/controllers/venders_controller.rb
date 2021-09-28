@@ -17,7 +17,8 @@ class VendersController < ApplicationController
   private
 
 
+
   def vender_params
-    # params.require
-  end
+    params.require(:vender).permit(:title, :genre_id, :residence, :introduction).merge(user_id: current_user.id)
+  end   
 end

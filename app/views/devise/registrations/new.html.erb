@@ -1,0 +1,41 @@
+<div class="bg-fixed h-screen" 
+style="background-image: url('https://cdn.pixabay.com/photo/2019/11/28/21/22/coin-operated-4660089_1280.png')">
+
+<div class="italic animate-bounce text-4xl text-blue-500 font-bold flex justify-center">sign up!!</div>
+<div class="font-extrabold text-2xl text-black-800 flex justify-center">
+
+<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <div class="field ">
+  <%= f.label :nickname %><br />
+  <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.submit "登録"%>
+  </div>
+  </div>
+  </div>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

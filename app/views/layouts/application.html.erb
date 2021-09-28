@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vensee</title>
+    <meta charset="UTF-8" >
+    <title>VenSee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= include_gon %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="style.css">
+    <%=stylesheet_link_tag "tailwind"%>
   </head>
 
-  <body>
-  <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">VenSee</a></h1>
-        <div class="user_nav grid-6">
-          <a class="post" href="/venders/new">投稿する</a>
-        </div>
+  <body> 
+        <div class="bg-orange-200 text-center text-4xl animate-bounce">レアな自販機見つけよう！</div>
+  <div class="w-1/5 container mx-auto">
+      <%= link_to image_tag('horizontal_on_white_by_logaster.png'), root_path%>
       </div>
-
-    </header>
     <%= yield %>
-     <footer>
-      <p>
-        Copyright VenSee 2021.
-      </p>
-    </footer>
   </body>
 </html>

@@ -6,7 +6,7 @@ class Vender < ApplicationRecord
   # with_options presence: true do
   # validates :title
   # validates :genre_id
-  # validates :reference
+  # validates :residence
+  # validates :introduction
   # end
-
 end

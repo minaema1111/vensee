@@ -1,0 +1,20 @@
+<div class="flex justify-center text-4xl text-blue-500 italic animate-bounce">Sign in!!</div>
+
+<div class="bg-fixed h-screen bg-opacity-75" style="background-image: url('https://cdn.pixabay.com/photo/2016/08/03/16/30/atm-1567136_1280.jpg')">
+<div class="flex justify-center font-bold text-2xl text-green-500">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+</div>

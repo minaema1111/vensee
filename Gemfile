@@ -55,10 +55,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
 gem 'devise'
-gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'sprockets'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'gon'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem "jquery-ui-rails"
+gem "tailwindcss-rails"
