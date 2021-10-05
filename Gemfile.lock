@@ -219,6 +219,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    tailwindcss-rails (0.4.3)
+      rails (>= 6.0.0)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -272,6 +274,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets
+  tailwindcss-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
