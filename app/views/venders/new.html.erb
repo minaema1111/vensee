@@ -1,0 +1,19 @@
+
+<%= form_with model: @vender do |f| %>
+<p>タイトル</p>
+  <%= f.text_field :title %>
+
+  <p>画像</p>
+  <%= f.file_field :image %>
+
+  <p>ジャンル</p>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {} )%>
+
+  <p>住所</p>
+  <%= f.text_area :residence %>
+
+  <p>どんな自販機？</p>
+  <%= f.text_area :introduction %>
+
+  <%= f.submit "投稿する" %>
+<% end%>
