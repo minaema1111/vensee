@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_10_15_072747) do
     t.integer "genre_id", null: false
     t.text "introduction"
     t.text "residence", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_venders_on_user_id"

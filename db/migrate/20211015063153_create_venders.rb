@@ -6,6 +6,8 @@ class CreateVenders < ActiveRecord::Migration[6.0]
       t.integer :genre_id, null: false
       t.text :introduction
       t.text :residence, null: false
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
