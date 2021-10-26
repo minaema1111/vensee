@@ -1,26 +1,27 @@
-<h2>Log in</h2>
+<div class="bg-fixed h-screen bg-contain " style="background-image: url(https://media.gettyimages.com/photos/young-woman-using-vending-machine-side-view-picture-id200519985-001?s=2048x2048);">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
+<div class="italic animate-bounce flex justify-center text-blue-600 text-4xl italic animate-bouncen p-20">
+Sign up
+</div>
+
+<%= form_with model: @user, url: user_session_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+<div class="text-center text-blue-600 text-2xl font-mono">
+  <div class="field mb-10">
+    <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
+  <div class="field mb-10">
+    <%= f.label :password, "パスワード" %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions mb-20">
+    <%= f.submit "ログイン" %>
+  </div>
+  </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

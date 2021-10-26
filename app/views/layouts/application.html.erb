@@ -15,12 +15,31 @@
   </head>
 
   <body>
-  <header>
-  <div class="w-1/5 container mx-auto bg-red-500">
+  <header class="bg-gradient-to-r from-blue-400">
+  <div class="w-1/5 h-20 container mx-auto">
   <%= link_to image_tag("horizontal_on_white_by_logaster (1).png"), root_path%>
+  </div>
+    <div class="m-3 mx-16 inline-block">
+  <button class="px-2 py-1 bg-blue-400 text-lg text-white font-semibold rounded hover:bg-blue-500">
+  <%= link_to "投稿する", new_vender_path%>
+  </button>
+  </div>
+
+  <% if user_signed_in?%>
+  <%= "こんにちは、#{current_user.nickname}さん"%>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+  <% else %>
+  <%= link_to "新規登録", new_user_registration_path%>
+  <%= link_to "ログイン", new_user_session_path%>
+  <% end %>
   </div>
 
     </header>
+    <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
     <%= yield %>
+    <footer>
+    <div class="flex justify-center text-4xl text-blue-400 bg-gradient-to-r from-blue-400">by VenSee</div>
+    </footer>
   </body>
 </html>
