@@ -1,0 +1,27 @@
+<div class="bg-fixed h-screen bg-contain " style="background-image: url(https://media.gettyimages.com/photos/young-woman-using-vending-machine-side-view-picture-id200519985-001?s=2048x2048);">
+
+<div class="italic animate-bounce flex justify-center text-blue-600 text-4xl italic animate-bouncen p-20">
+Sign up
+</div>
+
+<%= form_with model: @user, url: user_session_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+<div class="text-center text-blue-600 text-2xl font-mono">
+  <div class="field mb-10">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field mb-10">
+    <%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions mb-20">
+    <%= f.submit "ログイン" %>
+  </div>
+  </div>
+  </div>
+<% end %>
+

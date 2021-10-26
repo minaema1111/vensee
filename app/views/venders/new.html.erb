@@ -1,0 +1,41 @@
+<div class="bg-fixed bg-center h-screen bg-opacity-50" style="background-image: url(https://media.gettyimages.com/photos/guy-using-vending-machine-picture-id1171539909?s=2048x2048);">
+
+<div class="flex justify-center p-10 font-mono">
+<%= form_with model: @vender, local: true do |f| %>
+
+<div class="mb-8">
+<div class="text-yellow-500">
+  <%= f.label :title, "タイトル"%><br>
+  </div>
+  <%= f.text_field :title, placeholder: "必須"%><br>
+    </div>
+
+  <div class="mb-8 text-yellow-500">
+  <%= f.label :image, "画像を入れよう！"%><br>
+  <%= f.file_field :image %><br>
+  </div>
+
+  <div class="mb-8">
+  <div class="text-yellow-500">
+  <%= f.label :genre_id, "ジャンルを選択"%><br>
+  </div>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name, {} )%><br>
+  </div>
+
+  <div class="mb-8">
+  <div class="text-yellow-500">
+  <%= f.label :residence, "住所を入力してね！"%><br>
+  </div>
+  <%= f.text_area :residence, placeholder: "必須" %><br>
+  </div>
+
+<div class="text-yellow-500">
+  <%= f.label :introduction, "どんな自販機？"%><br>
+  </div>
+  <%= f.text_area :introduction, placeholder: "任意" %><br>
+  </div>
+
+  <div class="ml-20 p-4 text-center mr-20 -ml-20 mb-14">
+  <%= f.submit "投稿する" %>
+  </div>
+<% end%>
