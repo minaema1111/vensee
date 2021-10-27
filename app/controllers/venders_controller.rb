@@ -1,7 +1,7 @@
 class VendersController < ApplicationController
 
   def index
-    @venders = Vender.all
+    @venders = Vender.all.page(params[:page]).per(5)
   end
 
   def new
