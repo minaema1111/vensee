@@ -67,3 +67,4 @@ gem "gon"
 gem 'geocoder'
 gem 'http'
 gem 'rails-i18n'
+gem 'kaminari'

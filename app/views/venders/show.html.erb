@@ -1,3 +1,8 @@
+<div class="bg-gradient-to-r from-blue-400">
+<div class="text-3xl text-center text-yellow-400">
+<%= @vender.title%>
+</div>
+
 <div id='map'>
 <script>
 let map
@@ -19,4 +24,17 @@ function initMap(){
 }
 </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+</div>
+
+<div class="flex justify-center">
+<%= image_tag(@vender.image)%>
+</div>
+
+<%= @vender.residence%>
+
+<p>
+<%= @vender.genre.name%>
+</p>
+
+<%= @vender.introduction%>
 </div>

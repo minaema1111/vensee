@@ -4,18 +4,19 @@
     <title>Vensee</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+        <%= favicon_link_tag 'favicon (1).ico' %>
 
+    <%= include_gon %>
     <%= stylesheet_link_tag "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= include_gon %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <header class="bg-gradient-to-r from-blue-400">
+
   <div class="w-1/5 h-20 container mx-auto">
   <%= link_to image_tag("horizontal_on_white_by_logaster (1).png"), root_path%>
   </div>
@@ -26,15 +27,20 @@
   </div>
 
   <% if user_signed_in?%>
-  <%= "こんにちは、#{current_user.nickname}さん"%>
+  <div class="text-white text-1xl r-0 inline-block font-sans italic ">
+  <%= "ようこそ、#{current_user.nickname}さん！"%>
+  </div>
+  <button class="px-2 py-1 bg-red-400 text-lg text-white font-semibold rounded hover:bg-red-500 ">
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+  </button>
+
   <% else %>
   <%= link_to "新規登録", new_user_registration_path%>
   <%= link_to "ログイン", new_user_session_path%>
   <% end %>
   </div>
-
     </header>
+
     <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
