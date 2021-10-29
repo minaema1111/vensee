@@ -1,5 +1,7 @@
 class VendersController < ApplicationController
   protect_from_forgery :except => [:destroy]
+  before_action :move_to_index, except: [:index, :show]
+
 
   def index
     
@@ -36,6 +38,12 @@ end
 
   def vender_params
     params.require(:vender).permit(:title, :genre_id, :introduction, :residence, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end
