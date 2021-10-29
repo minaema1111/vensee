@@ -3,6 +3,7 @@ class Vender < ApplicationRecord
   geocoded_by :residence
   after_validation :geocode, if: :residence_changed?
 
+
   belongs_to :genre
   belongs_to :user, optional: true
   has_many :comments

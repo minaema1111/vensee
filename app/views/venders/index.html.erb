@@ -1,25 +1,24 @@
-
+<div class="bg-gradient-to-r from-blue-400">
 <div class="text-4xl text-purple-600 text-center p-10 animate-bounce italic">
 投稿一覧
-</div>
+  </div>
 
-<div class="grid-cols-2 ">
 
 <% @venders.each do |vender| %>
-<div class="text-center text-2xl text-purple-900 font-mono italic p-4">
 
+<div class="text-center text-2xl text-purple-900 font-mono italic p-4 rounded hover:opacity-75 ">
 <%= link_to vender.title, vender_path(vender.id)%>
-</div>
-</div>
+  </div>
 
 
 
 <div class="flex justify-center">
-<%= link_to image_tag(vender.image), vender_path(vender.id)%>
-</div>
+<%= link_to image_tag(vender.image, size: '400x400', class: 'rounded-2xl '), vender_path(vender.id)%>
+  </div>
 
 <div class="text-center font-mono text-blue-600">
-<%= "by #{vender.user.nickname}さん"%>
+  <%= "by #{vender.user.nickname}さん"%>
 
-<% end %>
-<div class='p-top__paginate p-4' ><%= paginate(@venders) %></div>
+  <% end %>
+<div class='p-top__paginate p-8 hover:opacity-75 text-2xl' ><%= paginate(@venders) %></div>
+  </div>

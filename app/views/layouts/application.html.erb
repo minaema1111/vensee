@@ -18,7 +18,7 @@
   <header class="bg-gradient-to-r from-blue-400">
 
   <div class="w-1/5 h-20 container mx-auto">
-  <%= link_to image_tag("horizontal_on_white_by_logaster (1).png"), root_path%>
+  <%= link_to image_tag("horizontal_on_white_by_logaster (1).png", class: 'rounded-full'), root_path%>
   </div>
     <div class="m-3 mx-16 inline-block">
   <button class="px-2 py-1 bg-blue-400 text-lg text-white font-semibold rounded hover:bg-blue-500">
@@ -35,14 +35,13 @@
   </button>
 
   <% else %>
-  <%= link_to "新規登録", new_user_registration_path%>
-  <%= link_to "ログイン", new_user_session_path%>
+  <%= link_to "新規登録", new_user_registration_path, class: 'px-2 py-1 bg-yellow-400 text-lg text-white font-semibold rounded hover:bg-yellow-500'%>
+  <%= link_to "ログイン", new_user_session_path, class: 'px-2 py-1 bg-green-800 text-lg text-white font-semibold rounded hover:bg-green-500'%>
   <% end %>
   </div>
     </header>
 
-    <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
     <%= yield %>
     <footer>
     <div class="flex justify-center text-4xl text-blue-400 bg-gradient-to-r from-blue-400">by VenSee</div>
