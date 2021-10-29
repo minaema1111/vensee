@@ -1,6 +1,8 @@
 class VendersController < ApplicationController
+  protect_from_forgery :except => [:destroy]
 
   def index
+    
     @venders = Vender.all.page(params[:page]).per(5)
   end
 
@@ -22,9 +24,12 @@ class VendersController < ApplicationController
   end
 
   def destroy
-    @vender = Vender.find(params[:id])
-    @vender.destroy
-    redirect_to root_path
+    vender = Vender.find(params[:id])
+    if vender.destroy
+      redirect_to root_path
+    else
+      render :new
+  end
 end
 
   private
