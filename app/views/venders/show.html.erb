@@ -81,7 +81,9 @@
         </div>
         <div class="text-center">
         <% if user_signed_in? && c.user == current_user %>
-        <%= button_to "削除", vender_comment_path(c.vender.id, c.id), method: :delete %>
+        <%= button_to "削除", vender_comment_path(c.vender.id, c.id),
+        class:"bg-red-500 hover:bg-red-400 text-white font-bold px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
+         method: :delete %>
         </div>
         <% end %>
       <% end %>
