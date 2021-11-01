@@ -2,6 +2,10 @@
 <div class="flex justify-center p-10 font-mono">
 
 <%= form_with model: @vender, local: true do |f| %>
+<div class="text-red-700 text-1xl font-mono">
+  <%= render "layouts/vender_error" %>
+  </div>
+
 <div class="mb-8">
 <div class="text-yellow-500">
   <%= f.label :title, "タイトル"%><br>

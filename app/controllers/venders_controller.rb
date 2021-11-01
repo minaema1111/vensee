@@ -20,7 +20,7 @@ class VendersController < ApplicationController
 
   def create
     @vender = Vender.new(vender_params)
-    if @vender.save!
+    if @vender.save
       redirect_to root_path
     else 
       render :new

@@ -5,8 +5,9 @@ Sign up
 </div>
 
 <%= form_with model: @user, url: user_session_path do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+<div class="text-center text-red-500 text-2xl font-mono mb-4">
+<%= flash[:alert]%>
+</div>
 <div class="text-center text-blue-600 text-2xl font-mono">
   <div class="field mb-10">
     <%= f.label :email, "メールアドレス" %><br />

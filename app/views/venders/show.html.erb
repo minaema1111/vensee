@@ -75,14 +75,14 @@
     <% end %>
 
     <div class="text-2xl text-center mt-8 font-mono italic text-purple-500">＜コメント一覧＞</div>
-      <% @vender.comments.each do |c| %>
+      <% @vender.comments.each do |f| %>
         <div class="text-center text-2xl font-bold text-blue-500">
-        <%= c.user.nickname %>:
-          <%= c.content %>
+        <%= f.user.nickname %>:
+          <%= f.content %>
         </div>
         <div class="text-center">
-        <% if user_signed_in? && c.user == current_user %>
-        <%= button_to "削除", vender_comment_path(c.vender.id, c.id),
+        <% if user_signed_in? && f.user == current_user %>
+        <%= button_to "削除", vender_comment_path(f.vender.id, f.id),
         class:"my-2 bg-red-500 hover:bg-red-400 text-white font-bold px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
          method: :delete %>
         </div>

@@ -11,5 +11,6 @@ class Vender < ApplicationRecord
 
   validates :title, :residence, presence: true
   validates :genre_id, numericality: { other_than: 1 , message: "--は選択できません！"}
+  validates :image, presence: true
 
 end

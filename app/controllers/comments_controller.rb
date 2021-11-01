@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    redirect_to vender_path(params[:vender_id])
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to vender_path(params[:vender_id])
+    else
+      redirect_to vender_path(params[:vender_id])
+    end
   end
 
   def destroy
@@ -20,3 +24,5 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content).merge(user_id: current_user.id, vender_id: params[:vender_id])
   end
 end
+
+
