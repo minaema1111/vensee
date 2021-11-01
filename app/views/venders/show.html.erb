@@ -57,3 +57,34 @@
     <%= button_to "編集する", edit_vender_path(@vender.id), class: "btn-gradient-simple"%>
     <%= button_to "削除する", vender_path(@vender.id), method: :delete, class: "btn-gradient-simple-second" %>
 <% end %>
+
+      <%= form_with(model: [@vender, @comment], local: true) do |f| %>
+      <div class="text-center mt-8">
+            <% if user_signed_in? && current_user != @vender.user%>
+        <%= f.text_area :content, size: "40x10", placeholder: "コメントする", rows: "2" %>
+        <p>
+        <%= f.submit "コメント", class: "bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4 border-yellow-700 hover:border-yellow-500 rounded" %>
+        </p>
+
+        </div>
+      <% else %>
+    <div class="text-center mt-8 text-yellow-500">
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      </div>
+    <% end %>
+    <% end %>
+
+    <div class="text-2xl text-center mt-8 font-mono italic text-purple-500">＜コメント一覧＞</div>
+      <% @vender.comments.each do |f| %>
+        <div class="text-center text-2xl font-bold text-blue-500">
+        <%= f.user.nickname %>:
+          <%= f.content %>
+        </div>
+        <div class="text-center">
+        <% if user_signed_in? && f.user == current_user %>
+        <%= button_to "削除", vender_comment_path(f.vender.id, f.id),
+        class:"my-2 bg-red-500 hover:bg-red-400 text-white font-bold px-4 border-b-4 border-red-700 hover:border-red-500 rounded",
+         method: :delete %>
+        </div>
+        <% end %>
+      <% end %>

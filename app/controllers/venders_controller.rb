@@ -1,6 +1,6 @@
 class VendersController < ApplicationController
   protect_from_forgery :except => [:destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
 
   def index
@@ -14,11 +14,13 @@ class VendersController < ApplicationController
 
   def show
     @vender = Vender.find(params[:id])
+    @user = @vender.user
+    @comment = Comment.new
   end
 
   def create
     @vender = Vender.new(vender_params)
-    if @vender.save!
+    if @vender.save
       redirect_to root_path
     else 
       render :new
@@ -38,12 +40,6 @@ end
 
   def vender_params
     params.require(:vender).permit(:title, :genre_id, :introduction, :residence, :image).merge(user_id: current_user.id)
-  end
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
   end
 
 end
