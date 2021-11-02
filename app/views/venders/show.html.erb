@@ -54,11 +54,13 @@
 
 <% if current_user == @vender.user%>
 <div class="space-y-8 text-center mt-10">
-    <%= button_to "編集する", edit_vender_path(@vender.id), class: "btn-gradient-simple"%>
+    <%= button_to "編集する", edit_vender_path, method: :get, class: "btn-gradient-simple"%>
     <%= button_to "削除する", vender_path(@vender.id), method: :delete, class: "btn-gradient-simple-second" %>
 <% end %>
 
       <%= form_with(model: [@vender, @comment], local: true) do |f| %>
+        <%= render "layouts/comment_error" %>
+
       <div class="text-center mt-8">
             <% if user_signed_in? && current_user != @vender.user%>
         <%= f.text_area :content, size: "40x10", placeholder: "コメントする", rows: "2" %>
