@@ -55,4 +55,5 @@ end
     params.require(:vender).permit(:title, :genre_id, :introduction, :residence, :image).merge(user_id: current_user.id)
   end
 
+  
 end
