@@ -54,7 +54,7 @@
 
 <% if current_user == @vender.user%>
 <div class="space-y-8 text-center mt-10">
-    <%= button_to "編集する", edit_vender_path(@vender.id), class: "btn-gradient-simple"%>
+    <%= button_to "編集する", edit_vender_path, method: :get, class: "btn-gradient-simple"%>
     <%= button_to "削除する", vender_path(@vender.id), method: :delete, class: "btn-gradient-simple-second" %>
 <% end %>
 

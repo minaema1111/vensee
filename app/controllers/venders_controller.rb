@@ -36,6 +36,19 @@ class VendersController < ApplicationController
   end
 end
 
+def edit
+  @vender = Vender.find(params[:id])
+end
+
+def update
+  vender = Vender.find(params[:id])
+  if vender.update(vender_params)
+    redirect_to vender_path(vender.id)
+  else
+    render 'edit'
+  end
+end
+
   private
 
   def vender_params
