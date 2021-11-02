@@ -1,12 +1,13 @@
 class VendersController < ApplicationController
   protect_from_forgery :except => [:destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
 
+
   def index
-    
-    @venders = Vender.all.page(params[:page]).per(5)
+    @venders = Vender.page(params[:page]).per(5)
+
   end
 
   def new
@@ -50,6 +51,10 @@ def update
   end
 end
 
+def search
+  @venders = Vender.search(params[:keyword])
+end
+
   private
 
   def vender_params
@@ -61,10 +66,5 @@ end
     unless current_user == @vender.user
     redirect_to root_path
 end
-
-def set_vender
-  @vender = Vender.find(params[:id])
-end
-
 end
 end
