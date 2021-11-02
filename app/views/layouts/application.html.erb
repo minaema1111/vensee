@@ -43,7 +43,7 @@
   <div class="float-right mr-20 ">
   <%= form_with url: search_venders_path, method: :get, local: true do |f| %>
     <%= f.text_field :keyword, class: "rounded border-purple-700", placeholder: "都道府県名を入力", value: @keyword %>
-    <%= f.submit "検索", class: " bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 border-b-4 border-purple-700 hover:border-purple-500 rounded" %>
+    <%= f.submit "検索", class: " px-2 py-1 bg-purple-400 text-lg text-white font-semibold rounded hover:bg-purple-500" %>
     </div>
   <% end %>
   </div>
