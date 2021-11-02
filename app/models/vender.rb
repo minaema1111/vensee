@@ -13,4 +13,11 @@ class Vender < ApplicationRecord
   validates :genre_id, numericality: { other_than: 1, message: "--は選択できません！"}
   validates :image, presence: true
 
+  def self.search(search)
+    if search != ""
+      Vender.where('residence LIKE(?)', "%#{search}%")
+    else
+      Vender.all
+    end
+  end
 end
