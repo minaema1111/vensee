@@ -1,5 +1,6 @@
-<div class="bg-gradient-to-r from-blue-400">
-<% @venders.each do |vender| %>
-    <%= render partial: "vender", locals: { vender: vender } %>
+<div class="bg-gradient-to-r from-blue-400 h-screen">
+<% @results.each do |vender| %>
+  <%= render partial: "vender", locals: { vender: vender } %>
   <% end %>
 </div>
+

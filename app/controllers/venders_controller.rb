@@ -3,8 +3,6 @@ class VendersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
-
-
   def index
     @venders = Vender.page(params[:page]).per(5)
 
@@ -51,12 +49,7 @@ def update
   end
 end
 
-def search
-  @venders = Vender.search(params[:keyword])
-end
-
   private
-
   def vender_params
     params.require(:vender).permit(:title, :genre_id, :introduction, :residence, :image).merge(user_id: current_user.id)
   end
@@ -67,4 +60,5 @@ end
     redirect_to root_path
 end
 end
+
 end
