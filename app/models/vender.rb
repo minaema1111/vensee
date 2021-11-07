@@ -12,12 +12,14 @@ class Vender < ApplicationRecord
   validates :title, :residence, presence: true
   validates :genre_id, numericality: { other_than: 1, message: "--は選択できません！"}
   validates :image, presence: true
+  validates :introduction, length: { maximum: 100 }
 
   def self.search(search)
     if search != ""
       Vender.where('residence LIKE(?)', "%#{search}%")
-    else
+      else
       Vender.all
-    end
+      end
+
   end
 end

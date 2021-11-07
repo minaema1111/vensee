@@ -41,8 +41,9 @@
   </div>
 
   <div class="float-right mr-20 ">
-  <%= form_with url: search_venders_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, class: "rounded border-purple-700", placeholder: "都道府県名を入力", value: @keyword %>
+  <%= search_form_for @p, url: search_venders_path do |f| %>
+    <%= f.text_field :residence_cont, class: "rounded border-purple-700", placeholder: "都道府県名を入力", value: @keyword %>
+    <%= f.collection_select :genre_id_eq, Genre.all, :id, :name %>
     <%= f.submit "検索", class: " px-2 py-1 bg-purple-400 text-lg text-white font-semibold rounded hover:bg-purple-500" %>
     </div>
   <% end %>
