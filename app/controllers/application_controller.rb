@@ -13,12 +13,17 @@ class ApplicationController < ActionController::Base
     # method = params[:search_method]
     # word = params[:search_word]
     # @p = Vender.search(method,word)
-
+    # @p = Vender.search(:residence_cont => params[:q][:search])
     @results = @p.result
   end
 
   private
   def create_searching_object
-    @p = Vender.ransack(params[:q]) 
+    # genre_idが1の場合は検索条件から外す
+    if params[:q].present? && params[:q][:genre_id_eq] == "1"
+      params[:q][:genre_id_eq] = ''
+    end
+
+    @p = Vender.ransack(params[:q])
   end
 end
