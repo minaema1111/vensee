@@ -1,4 +1,7 @@
 <div class="bg-gradient-to-r from-blue-400 h-full">
+<div class="text-center font-bold italic text-4xl text-yellow-500 p-10 animate-bounce">
+検索結果
+</div>
 <% @results.each do |vender| %>
   <%= render partial: "vender", locals: { vender: vender } %>
   <% end %>
