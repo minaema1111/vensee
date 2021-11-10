@@ -1,7 +1,6 @@
 class VenderUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_fill: [1000, 500]
-  .
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

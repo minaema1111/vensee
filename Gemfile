@@ -79,3 +79,4 @@ gem 'kaminari'
 gem 'ransack'
 gem 'hirb'
 gem 'hirb-unicode'
+gem "aws-sdk-s3", require: false
