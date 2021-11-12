@@ -7,7 +7,7 @@ RSpec.describe Vender, type: :model do
   describe '新規投稿' do
     context '新規投稿出来ない時' do
       it 'titleが空では登録出来ない' do
-        @vender.title = ""
+        @vender.title = ''
         @vender.valid?
         expect(@vender.errors.full_messages)
       end

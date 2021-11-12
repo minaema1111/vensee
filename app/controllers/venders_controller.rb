@@ -1,11 +1,10 @@
 class VendersController < ApplicationController
-  protect_from_forgery :except => [:destroy]
+  protect_from_forgery except: [:destroy]
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @venders = Vender.page(params[:page]).per(5)
-
   end
 
   def new
@@ -22,7 +21,7 @@ class VendersController < ApplicationController
     @vender = Vender.new(vender_params)
     if @vender.save
       redirect_to root_path
-    else 
+    else
       render :new
     end
   end
@@ -36,29 +35,27 @@ class VendersController < ApplicationController
   end
 end
 
-def edit
-  @vender = Vender.find(params[:id])
-end
-
-def update
-  vender = Vender.find(params[:id])
-  if vender.update(vender_params)
-    redirect_to vender_path(vender.id)
-  else
-    render 'edit'
+  def edit
+    @vender = Vender.find(params[:id])
   end
-end
+
+  def update
+    vender = Vender.find(params[:id])
+    if vender.update(vender_params)
+      redirect_to vender_path(vender.id)
+    else
+      render 'edit'
+    end
+  end
 
   private
+
   def vender_params
     params.require(:vender).permit(:title, :genre_id, :introduction, :residence, :image).merge(user_id: current_user.id)
   end
 
   def contributor_confirmation
     @vender = Vender.find(params[:id])
-    unless current_user == @vender.user
-    redirect_to root_path
+    redirect_to root_path unless current_user == @vender.user
 end
-end
-
 end

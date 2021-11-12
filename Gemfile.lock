@@ -69,6 +69,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ast (2.4.2)
     aws-eventstream (1.1.1)
     aws-partitions (1.489.0)
     aws-sdk-core (3.119.1)
@@ -216,6 +217,9 @@ GEM
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    parser (2.7.2.0)
+      ast (~> 2.4.1)
+    powerpack (0.1.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -258,6 +262,8 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
+    rainbow (2.2.2)
+      rake
     raindrops (0.19.2)
     rake (13.0.6)
     ransack (2.4.2)
@@ -290,6 +296,12 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    rubocop (0.36.0)
+      parser (>= 2.3.0.0, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+    ruby-progressbar (1.11.0)
     ruby-vips (2.1.3)
       ffi (~> 1.12)
     ruby_dep (1.5.0)
@@ -387,6 +399,7 @@ DEPENDENCIES
   rails-i18n
   ransack
   rspec-rails (~> 4.0.0)
+  rubocop
   sass-rails (~> 5)
   selenium-webdriver
   spring
