@@ -28,7 +28,7 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    run 'cp /var/www/vensee/.env /var/www/vensee/current/'
+    sh 'cp /var/www/vensee/.env /var/www/vensee/current/'
     invoke 'unicorn:restart'
   end
 end
