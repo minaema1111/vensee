@@ -26,7 +26,7 @@
         geocoder = new google.maps.Geocoder()
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>
   </div>
 
   <p class="text-purple-500 text-4xl text-center font-mono italic rounded border-blue-400 border-solid border-4 mx-64 p-2 ">自販機画像</p>
