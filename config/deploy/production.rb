@@ -58,5 +58,5 @@
 #     forward_agent: false,
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
-#   }
+#   set :rails_env, 'production'}
 server '52.192.31.2', user: 'ec2-user', roles: %w{app db web}
