@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     if comment.save
       redirect_to vender_path(params[:vender_id])
-    else
-      redirect_to vender_path(params[:vender_id])
     end
   end
 

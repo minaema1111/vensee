@@ -1,6 +1,8 @@
 <div class="bg-gradient-to-r from-blue-400 h-full">
+<div class="w-1/2 md:w-full text-4xl text-purple-500 text-center p-10 animate-spin italic font-bold">
+検索結果
+</div>
 <% @results.each do |vender| %>
   <%= render partial: "vender", locals: { vender: vender } %>
   <% end %>
 </div>
-
