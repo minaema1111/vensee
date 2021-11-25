@@ -4,7 +4,7 @@ class VendersController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
-    @venders = Vender.page(params[:page]).per(5)
+    @venders = Vender.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def new

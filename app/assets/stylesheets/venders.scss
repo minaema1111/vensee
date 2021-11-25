@@ -55,5 +55,34 @@
 
 .field_with_errors {
   display: contents;
-  // もしくは diplay: inline;
+}
+
+.pagination{
+  margin: 20px auto 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  span{
+      text-align: center;
+      width: 50px;
+      :hover{
+          background-color:deepskyblue;
+      }
+      a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          :hover{
+              background-color: blue;
+            }
+      }
+  }
+}
+
+.current{
+  color: blue;
+}
+
+.gap{
+  background-color: white !important;
 }
